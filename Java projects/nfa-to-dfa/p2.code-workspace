@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "fa/nfa"
+		},
+		{
+			"path": "fa"
+		},
+		{
+			"path": "fa/dfa"
+		},
+		{
+			"path": "."
+		}
+	]
+}
