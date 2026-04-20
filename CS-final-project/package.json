@@ -1,0 +1,22 @@
+{
+  "name": "f22-kneed-for-speed",
+  "version": "1.0.0",
+  "description": "Knee visualazation web app which shows a heat map of different pressure zones in the knee.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo Stubbed test command"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cs481-ekh/f22-kneed-for-speed.git"
+  },
+  "author": "Kate Rosenthal, Mario Torres, Sharon Yang, Mitchell Crocker, Ezekiel Holmes",
+  "license": "(MIT)",
+  "bugs": {
+    "url": "https://github.com/cs481-ekh/f22-kneed-for-speed/issues"
+  },
+  "homepage": "https://github.com/cs481-ekh/f22-kneed-for-speed#readme"
+}

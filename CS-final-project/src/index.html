@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <title>BSU SDP Knee Visualization App</title>
+</head>
+
+<body>
+    <div class="layout-grid-container">
+        <div class="grid-item header">
+            <div class="banner">
+                <h1>KnApp</h1>
+                <h2>The knee visualization app</h2>
+            </div>
+        </div>
+        <div class="grid-item upload-buttons-container">
+            <form id="form" enctype="multipart/form-data">
+                <div class="file-buttons-container">
+                    <table>
+                        <tr>
+                            <th>Geometry File: <input type="file" class="choose-file-name" id="file1" accept=".inp"></th>
+                        </tr>
+                        <tr>
+                            <th>&ensp;&emsp;Results File: <input type="file" class="choose-file-name" id="file2" accept=".csv"></th>
+                        </tr> 
+                    </table> 
+                    <button class="draw-btn button" id="draw">Draw</button> 
+                    <button class="clear-btn button" id="clear">Clear</button>   
+                </div>
+            </form>
+            <script src="js/parse-geometry.js"></script>
+            <script src="js/resultsParser.js"></script>
+        </div>
+        <div class="grid-item dial-1-container">
+            <div class="dial-buttons dial-buttons-1">
+                <p>Limb Alignment (&deg;)</p>
+                <span class="dial-min-max-vals">15</span><span class="dial-min-max-divider">&nbsp;|&nbsp;</span><span class="dial-min-max-vals">0&nbsp;</span>
+                <div class="dial-shadow">
+                    <div class="dial-container" id="limb-alignment">
+                        <div class="dial"></div>
+                    </div>
+                </div>
+                <div class="numeric-input" id="numeric-input-dial-1">
+                    <button type="button" class="plus-minus button" id="minus-dial-1">-</button>
+                    <input type="number" min="0" max="15" step="0.1" value="0" class="dial-numbers" id="dial-1-value">
+                    <button type="button" class="plus-minus button" id="plus-dial-1">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item dial-2-container">
+            <div class="dial-buttons dial-buttons-2">
+                <p>Body Weight (kg)</p>
+                <span class="dial-min-max-vals">136</span><span class="dial-min-max-divider">&nbsp;|&nbsp;</span><span class="dial-min-max-vals">0&emsp;</span>
+                <div class="dial-shadow">
+                    <div class="dial-container" id="body-weight">
+                        <div class="dial"></div>
+                    </div>
+                </div>
+                <div class="numeric-input" id="numeric-input-dial-2">
+                    <button type="button" class="plus-minus button" id="minus-dial-2">-</button>
+                    <input type="number" min="0" max="136" value="0" class="dial-numbers" id="dial-2-value">
+                    <button type="button" class="plus-minus button" id="plus-dial-2">+</button>
+                </div>
+            </div>
+        </div>
+        <script src="js/limb-alignment-dial.js"></script>
+        <script src="js/body-weight-dial.js"></script>
+        <script src="js/numeric-inputs.js"></script>
+        <div class="grid-item heat-map-container" id="heatmap">
+        </div>
+        <div class="grid-item canvas-grid-section">
+            <div class="canvas-container" id="canvas-container">
+                <canvas class="map" id="map"></canvas>
+                <div id="button-wrapper" class="zoom-button-wrapper">
+                    <input type="button" class="button zoom-button" id="minus" value="-">
+                    &ensp;Zoom&ensp;
+                    <input type="button" class="button zoom-button" id="plus" value="+">
+                    <button class="save-button button" id="save" onclick="downloadImage()">Save</button> 
+                    <script>
+                        function downloadImage() {
+                            var canvas = document.getElementById("map");
+                            image = canvas.toDataURL("image/png");
+                            var link = document.createElement('a');
+                            link.download = "my-image.png";
+                            link.href = image;
+                            link.click();
+                        }
+                    </script>
+                </div>
+                <script src="js/canvas.js"></script> 
+            </div>
+        </div>
+        <div class="grid-item footer">
+            <div class="sdp-text-wrapper">
+                <img src="assets/images/sdp-logo-3.png" alt="senior design project logo" class="sdp-sticker">
+                <div class="sdp-text">
+                    This website was created for a<br />
+                    Boise State University<br />
+                    Computer Science Senior Design Project by:
+                    <div class="sdp-names"> Mitchell Crocker </div>
+                    <div class="sdp-names"> Ezekiel Holmes </div>
+                    <div class="sdp-names"> Kate Rosenthal </div>
+                    <div class="sdp-names"> Mario Torres </div>
+                    <div class="sdp-names"> Sharon Yang </div>
+                    For information about sponsoring a project go to:<br />
+                    <a
+                        href="https://www.boisestate.edu/coen-cs/community/cs481-senior-design-project/">https://www.boisestate.edu/coen-cs/community/cs481-senior-design-project/</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
